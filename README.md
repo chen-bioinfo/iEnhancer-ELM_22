@@ -46,8 +46,8 @@
 ### Enviromnent
 ```
 # Clone this repository
-git clone https://github.com/bernardo-de-almeida/DeepSTARR.git
-cd DeepSTARR/DeepSTARR
+git clone https://github.com/chen-bioinfo/iEnhancer-ELM.git
+cd iEnhancer-ELM
 
 # download the trained DeepSTARR model from zenodo (https://doi.org/10.5281/zenodo.5502060)
 
