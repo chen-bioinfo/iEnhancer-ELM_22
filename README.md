@@ -12,7 +12,7 @@ In this paper, we propose an enhancer language model **(iEnhancer-ELM)** for enh
 
 ## Model Structure
 
-<img src="Figure/model_structure.png" width="700" style="margin-bottom:0;margin-top:0;margin-left:5"/>
+<img src="Figure/model_structure.png" width="700" style="margin-bottom:0;margin-top:0;center;"/>
 
 ## Benchmark Dataset
 The benchmark dataset used in our article is from [Liu et al.](https://academic.oup.com/bioinformatics/article-abstract/34/22/3835/5034432), which consists of a training dataset and an independent dataset. In the training dataset, there are 1484 enhancer sequences and 1484 non-enhancer sequences. And there are 742 enhancer sequences and 742 non-enhancer sequences in the independent dataset. The files with a k-mer in its  file name represents the result of our overlapping tokenization result of the training dataset or the independent dataset.
