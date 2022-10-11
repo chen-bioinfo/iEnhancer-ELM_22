@@ -43,7 +43,24 @@
 <div align=center><img src="Figure/motif_result.png" width="900" /></div>
 
 ## Code
+### Enviromnent
+```
+# Clone this repository
+git clone https://github.com/bernardo-de-almeida/DeepSTARR.git
+cd DeepSTARR/DeepSTARR
 
+# download the trained DeepSTARR model from zenodo (https://doi.org/10.5281/zenodo.5502060)
+
+# create 'DeepSTARR' conda environment by running the following:
+conda create --name DeepSTARR python=3.7 tensorflow=1.14.0 keras=2.2.4 # or tensorflow-gpu/keras-gpu if you are using a GPU
+source activate DeepSTARR
+pip install git+git://github.com/AvantiShri/shap.git@master
+pip install 'h5py<3.0.0'
+pip install deeplift==0.6.13.0
+
+# Run prediction script
+python DeepSTARR_pred_new_sequence.py -s Sequences_example.fa -m DeepSTARR.model
+```
 
 ## Reference 
 [1] Ji Y, Zhou Z, Liu H, et al. DNABERT: pre-trained Bidirectional Encoder Representations from Transformers model for DNA-language in genome[J]. Bioinformatics, 2021, 37(15): 2112-2120.
