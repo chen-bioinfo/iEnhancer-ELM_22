@@ -18,10 +18,24 @@
 <div align=center><img src="Figure/model_structure.png" width="700" /></div>
 
 ## Result
+### Performance comparison in the independent dataset
 
+between ensemble iEnhancer-ELM and the state-of-the-art predictors for enhancer indefication
+| Method          | Acc    | Sn     |Sn     |MCC   |
+| iEnhancer-2L    | 0.7300 | 0.7100 | 0.7500 | 0.4600 |
+| iEnhancer-EL    | 0.7475 | 0.7100 | 0.7850 | 0.4960 |
 
-## Benchmark Dataset
-The benchmark dataset used in our article is from [Liu et al.](https://academic.oup.com/bioinformatics/article-abstract/34/22/3835/5034432), which consists of a training dataset and an independent dataset. In the training dataset, there are 1484 enhancer sequences and 1484 non-enhancer sequences. And there are 742 enhancer sequences and 742 non-enhancer sequences in the independent dataset. The files with a k-mer in its  file name represents the result of our overlapping tokenization result of the training dataset or the independent dataset.
+                \textbf{Method} & \textbf{Acc} & \textbf{Sn} & \textbf{Sn} & \textbf{MCC}\\ 
+                  \hline
+                    iEnhancer-2L          & 0.7300 & 0.7100 & 0.7500 & 0.4600  \\
+                    iEnhancer-EL          & 0.7475 & 0.7100 & 0.7850 & 0.4960  \\      
+                    iEnhancer-XG          & 0.7575 & 0.7400 & 0.7750 & 0.5140 \\
+                    iEnhancer-Deep        & 0.7402 & 0.8150 & 0.6700 & 0.4902 \\
+                    iEnhancer-GAN         & 0.7840 & 0.8110 & 0.7580 & 0.5670 \\
+                    iEnhancer-5Step       & 0.7900 & \textbf{0.8200} & 0.7600 & 0.5800 \\
+                    BERT-Enhancer         & 0.7560 & 0.8000 & 0.7750 & 0.5150  \\
+                    iEnhancer-ELM  & \textbf{0.8300} & 0.8000 & \textbf{0.8600} & \textbf{0.6612} \\
+                \hline
 
 ## Code
 We add the analysis codes to this folder. In the motif analysis, we refer to codes from [Ji et al.](https://academic.oup.com/bioinformatics/article-abstract/37/15/2112/6128680). We add the result of motif analysis in the folder of 'atten'. The folder of 'analysis' contains the t-SNE analysis process of sequence embedding.
