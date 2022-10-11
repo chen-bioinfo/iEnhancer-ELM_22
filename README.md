@@ -6,8 +6,11 @@ Enhancers are important **cis**-regulatory elements that regulate a wide range o
 
 ## Contribution
 Experiments on the benchmark dataset shows **iEnhancer-ELM with various k-mers achieves an accuracy of about **80%**, **outperforming all kind of well-known models with single feature**. Benefiting from the complementary information in various k-mer tokens, we ensemble multiple iEnhancer-ELM models to achieve a better performance with accuracy of **83.00%**, outperforming existing state-of-the-art methods. Furthermore, we interpret the actions of iEnhancer-ELM by analyzing the patterns in attention mechanism. **We find the motifs extracted from the attention mechanism match existing motifs with significant level**, demonstrating the ability of iEnhancer-ELM capturing important biological features for enhancer identification. The contribution of this work can be summarized as follows:
-\item We propose the enhancer language models by incorporating a pre-trained BERT-based DNA model to capture global contextual information from raw enhancer sequences.  \item Our iEnhancer-ELM achieves the best performance comparing with well-known models based on single feature, and the ensemble iEnhancer-ELM outperforms existing state-of-the-art methods.
-\item iEnhancer-ELM has the ability to capture important biological motifs for enhancer identification, demonstrating its potentials for revealing the biological mechanism of enhancers.
+💡 We propose the enhancer language models by incorporating a pre-trained BERT-based DNA model to capture global contextual information from raw enhancer sequences.  
+
+💡 Our iEnhancer-ELM achieves the best performance comparing with well-known models based on single feature, and the ensemble iEnhancer-ELM outperforms existing state-of-the-art methods.
+
+💡 iEnhancer-ELM has the ability to capture important biological motifs for enhancer identification, demonstrating its potentials for revealing the biological mechanism of enhancers.
 
 ## Benchmark Dataset
 The benchmark dataset used in our article is from [Liu et al.](https://academic.oup.com/bioinformatics/article-abstract/34/22/3835/5034432), which consists of a training dataset and an independent dataset. In the training dataset, there are 1484 enhancer sequences and 1484 non-enhancer sequences. And there are 742 enhancer sequences and 742 non-enhancer sequences in the independent dataset. The files with a k-mer in its  file name represents the result of our overlapping tokenization result of the training dataset or the independent dataset.
