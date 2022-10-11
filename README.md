@@ -49,7 +49,7 @@
 git clone https://github.com/chen-bioinfo/iEnhancer-ELM.git
 cd iEnhancer-ELM
 
-# download the trained DeepSTARR model from zenodo (https://doi.org/10.5281/zenodo.5502060)
+# download the pre-trained  (https://doi.org/10.5281/zenodo.5502060)
 
 # create 'DeepSTARR' conda environment by running the following:
 conda create --name DeepSTARR python=3.7 tensorflow=1.14.0 keras=2.2.4 # or tensorflow-gpu/keras-gpu if you are using a GPU
