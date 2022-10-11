@@ -1,5 +1,5 @@
 # iEnhancer-ELM
-## Article Title
+_Article Title_
 iEnhancer-ELM: Learning Explainable Contextual Information to Improve Enhancer Identification using Enhancer Language Models
 
 ## Benchmark Dataset
