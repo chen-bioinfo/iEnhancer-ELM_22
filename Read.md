@@ -17,7 +17,7 @@
 
 ## Result
 ### Performance comparison in the independent dataset
-
+ 
 &nbsp;&nbsp;&nbsp;&nbsp; The below table shows the performance comparison in the independent dataset between ensemble iEnhancer-ELM and the state-of-the-art predictors for enhancer indefication.
 
 | Method             | Acc     | Sn      | Sn      | MCC      | Source       |
