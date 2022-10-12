@@ -50,25 +50,19 @@ git clone https://github.com/chen-bioinfo/iEnhancer-ELM.git
 cd iEnhancer-ELM
 
 # download the pre-trained BERT-based DNA models from the link (https://drive.google.com/drive/folders/1qzvCzYbx0UIZV3HY4pEEeIm3d_mqZRcb?usp=sharing);
-# With these pre-trained models and the code file of iEnhancer-ELM/code/DNA_bert_finetuning_average_L2.ipynb, we can reproduce the training process.
+# With these pre-trained models and the code file of iEnhancer-ELM/code/DNA_bert_finetuning_average_L2.ipynb, 
+# we can reproduce the training process.
 
 cd iEnhancer-ELM/code
 # download the fine-trained classification models form the link (https://drive.google.com/drive/folders/1EdOYQ2BLcAUtS_dupWdmJ-v6bkne4xAM?usp=sharing);
-# With these fine-trained modles and the code file of iEnhancer-ELM/code/DNA_Bert_finetuning_L2_ensemble.ipynb, we can reproduce the best performance in independent dataset. And our motif analysis is based on these fine-trained models. 
+# With these fine-trained modles and the code file of iEnhancer-ELM/code/DNA_Bert_finetuning_L2_ensemble.ipynb, 
+# we can reproduce the best performance in independent dataset. And our motif analysis is based on these fine-trained models. 
 
-
-
-# download the pre-trained  (https://doi.org/10.5281/zenodo.5502060)
-
-# create 'DeepSTARR' conda environment by running the following:
-conda create --name DeepSTARR python=3.7 tensorflow=1.14.0 keras=2.2.4 # or tensorflow-gpu/keras-gpu if you are using a GPU
-source activate DeepSTARR
-pip install git+git://github.com/AvantiShri/shap.git@master
-pip install 'h5py<3.0.0'
-pip install deeplift==0.6.13.0
-
-# Run prediction script
-python DeepSTARR_pred_new_sequence.py -s Sequences_example.fa -m DeepSTARR.model
+# the key elements of 'iEnhancer-ELM' operating environment are listed below:
+# python=3.6.9; Torch=1.9.0+cull 
+# Numpy=1.19.5; Transformers=3.0.16
+# GPU=NVIDIA A100 80GB PCIe
+# the more details about code will been shown in the folder of 'code'.
 ```
 
 ## Reference 
