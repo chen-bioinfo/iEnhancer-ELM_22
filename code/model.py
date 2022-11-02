@@ -9,7 +9,7 @@ class NewsDataset(Dataset):
         self.encodings = encodings
         self.labels = labels
     
-    # 读取单个样本
+    # read simple sample
     def __getitem__(self, idx):
         item = {key: torch.tensor(val[idx]) for key, val in self.encodings.items()}
         if isinstance(self.labels[idx], str):

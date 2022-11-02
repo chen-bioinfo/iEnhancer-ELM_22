@@ -41,9 +41,7 @@ def get_embedding_for_scatter_token(args, dataloader, mer):
 
 
 def get_embedding_for_sequence_token(args, sequence_filename, mer):
-    """
-    return: 一行是一个句子，返回所有句子的所有token。
-    """
+
     args.batch_size = 1
     all_token_embeddings_sequence = []
     all_token_keys = []

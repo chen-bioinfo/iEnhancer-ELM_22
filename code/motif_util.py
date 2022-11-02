@@ -143,7 +143,6 @@ def find_high_attention(score, min_len=5, max_gap=0, **kwargs):
     
     cond = np.asarray(cond)
         
-    # 条件区域是左闭右开的
     # find important contiguous region with high attention
     motif_regions = contiguous_regions(cond,min_len, max_gap=max_gap)
     

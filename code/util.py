@@ -184,7 +184,7 @@ def train(model, args, tra_dataloader, val_dataloader, ind_dataloader):
         total_train_loss = 0
         train_acc = 0.0
         for batch_data in tra_dataloader:
-            # 正向传播
+            # forward
             optimizer.zero_grad()
             input_ids = batch_data['input_ids'].to(device)
             attention_mask = batch_data['attention_mask'].to(device)
@@ -197,11 +197,11 @@ def train(model, args, tra_dataloader, val_dataloader, ind_dataloader):
             total_train_loss += loss
             train_acc += flat_accuracy(pre_label, labels)
 
-            # 反向梯度信息
+            # gradient back
             loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
 
-            # 参数更新
+            # update the parameters
             optimizer.step()
             scheduler.step()
         
@@ -223,7 +223,7 @@ def validation(model, dataloader):
     device=torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     for batch_data in dataloader:
         with torch.no_grad():
-            # 正常传播
+            # forward
             input_ids = batch_data['input_ids'].to(device)
             attention_mask = batch_data['attention_mask'].to(device)
             labels = batch_data['labels'].to(device)
@@ -252,7 +252,7 @@ def train_finetuning_Norm(model, tra_dataloader, optimizer, args, lambd, normal,
     train_loss = 0
 
     for batch_data in tra_dataloader:
-        # 正向传播
+        # forward
         outputs = train_step(model, batch_data, optimizer, lambd, normal, kmer=kmer)
 
         loss = outputs[0].detach()
@@ -289,19 +289,18 @@ def train_step(model, batch_data, optimizer, lambd, normal, kmer=3):
     loss = outputs[0]
     lambd = torch.tensor(lambd, requires_grad = True)
     
-    # 添加正则项
-    if normal == 1:   # 添加L1正则化
+    # add normalization
+    if normal == 1:   # L1-normalization
         L1_loss = torch.tensor(0.0, requires_grad = False).to(device)
         for param in model.parameters():
             L1_loss += torch.norm(param, p=1)
         loss += lambd * L1_loss    
-    else:             # 添加L2正则化
+    else:             # L2-normalization
         L2_loss = torch.tensor(0.0, requires_grad = True).to(device)
         for param in model.parameters():
             L2_loss += torch.norm(param, p=2)
         loss += lambd * L2_loss
 
-    # 反向计算网络权重的梯度，限制回传梯度的范围，将梯度更新到模型权重上
     loss.backward()
     torch.nn.utils.clip_grad_norm_(model.parameters(), 2.0)
     optimizer.step()
@@ -320,7 +319,6 @@ def validation_finetuning(model, dataloader):
     for batch_data in dataloader:
         model.eval()
         with torch.no_grad():
-            # 正常向前传播，但是不设置梯度求解
             
             input_ids = batch_data["input_ids"].to(device)
             attention_mask = batch_data["attention_mask"].to(device)
@@ -354,7 +352,6 @@ def prediction(model, dataloader, kmer=3):
     for batch_data in dataloader:
         model.eval()
         with torch.no_grad():
-            # 正常向前传播，但是不设置梯度求解
             
             input_ids = batch_data["input_ids"].to(device)
             attention_mask = batch_data["attention_mask"].to(device)
@@ -404,7 +401,6 @@ def output_logit_label_atten(model, dataloader, args):
     for index, batch_data in enumerate(dataloader):
         model.eval()
         with torch.no_grad():
-            # 正常向前传播，但是不设置梯度求解
             
             input_ids = batch_data["input_ids"].to(device)
             attention_mask = batch_data["attention_mask"].to(device)
@@ -489,7 +485,6 @@ def output_logit_label_atten_head(model, dataloader, args):
     for index, batch_data in enumerate(dataloader):
         model.eval()
         with torch.no_grad():
-            # 正常向前传播，但是不设置梯度求解
             
             input_ids = batch_data["input_ids"].to(device)
             attention_mask = batch_data["attention_mask"].to(device)
@@ -545,7 +540,7 @@ def attention_compute_head(attention_scores, args):
     return head_scores
 
 
-# 在DNABert的基础上进行微调，
+# fine-tuning，
 def getDataLoader_finetuning(args, shuffle_=True):
     model_path =  args.model_path
     batch_size_ = args.batch_size
